@@ -95,9 +95,15 @@ class Game extends React.Component {
         }
 
         const moves = history.map((step, move) => {
-            const desc = move
-                ? `Go to move # ${move}`
-                : 'Go to game start';
+            let desc;
+            if (move) {
+                let prevStep = history[move - 1];
+                let { col, row } = getTurnLocation(prevStep.squares, step.squares)
+                desc = `Go to move # ${move} (${col},${row})`;
+            } else {
+                desc = 'Go to game start';
+            }
+
             return (
                 <li key={move}>
                     <button onClick={() => this.jumpTo(move)}>{desc}</button>
@@ -120,6 +126,16 @@ class Game extends React.Component {
             </div>
         );
     }
+}
+
+function getTurnLocation(prev, current) {
+    const index = current.findIndex((v, i) => v !== prev[i]);
+    const size = 3;
+
+    return {
+        col: index % size,
+        row: Math.floor(index / size)
+    };
 }
 
 function calculateWinner(squares) {
