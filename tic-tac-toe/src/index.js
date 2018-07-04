@@ -23,21 +23,11 @@ class Board extends React.Component {
     render() {
         return (
             <div>
-                <div className="board-row">
-                    {this.renderSquare(0)}
-                    {this.renderSquare(1)}
-                    {this.renderSquare(2)}
-                </div>
-                <div className="board-row">
-                    {this.renderSquare(3)}
-                    {this.renderSquare(4)}
-                    {this.renderSquare(5)}
-                </div>
-                <div className="board-game">
-                    {this.renderSquare(6)}
-                    {this.renderSquare(7)}
-                    {this.renderSquare(8)}
-                </div>
+                {Array(3).fill(null).map((rv, ri) => (
+                    <div className="board-row">
+                        {Array(3).fill(null).map((cv, ci) => this.renderSquare(ri * 3 + ci))}
+                    </div>
+                ))}
             </div>
         );
     }
@@ -99,7 +89,7 @@ class Game extends React.Component {
             if (move) {
                 let prevStep = history[move - 1];
                 let { col, row } = getTurnLocation(prevStep.squares, step.squares)
-                desc = `Go to move # ${move} (${col},${row})`;
+                desc = `Go to move # ${move} (${col + 1},${row + 1})`;
             } else {
                 desc = 'Go to game start';
             }
