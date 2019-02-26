@@ -9,15 +9,17 @@ export default class Game extends React.Component {
   constructor(props) {
     super(props);
 
+    const boardSize = DEFAULT_BOARD_SIZE;
+
     this.state = {
       history: [
         {
-          squares: Array(9).fill(null)
+          squares: Array(boardSize * boardSize).fill(null)
         }
       ],
       stepNumber: 0,
       xIsNext: true,
-      boardSize: DEFAULT_BOARD_SIZE
+      boardSize: boardSize
     };
   }
 

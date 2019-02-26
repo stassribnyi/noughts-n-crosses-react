@@ -20,7 +20,7 @@ export default class Board extends Component {
       const cells = [];
 
       for (let j = 0; j < size; j++) {
-        cells.push(i * 3 + j);
+        cells.push(i * size + j);
       }
 
       rows.push(cells);
