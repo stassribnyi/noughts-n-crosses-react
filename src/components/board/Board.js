@@ -5,27 +5,47 @@ import './Board.css';
 import Square from '../square';
 
 export default class Board extends Component {
-  renderSquare(i) {
-    return (
-      <Square
-        value={this.props.squares[i]}
-        onClick={() => this.props.onClick(i)}
-      />
-    );
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      rows: this.generateGrid(3)
+    };
+  }
+
+  generateGrid(size) {
+    const rows = [];
+
+    for (let i = 0; i < size; i++) {
+      const cells = [];
+
+      for (let j = 0; j < size; j++) {
+        cells.push(i * 3 + j);
+      }
+
+      rows.push(cells);
+    }
+
+    return rows;
   }
 
   render() {
+    const fetSquareValue = num => this.props.squares[num];
+    const onSquareClick = num => this.props.onClick(num);
+
     return (
-      <div>
-        {Array(3)
-          .fill(null)
-          .map((rv, ri) => (
-            <div className="board-row">
-              {Array(3)
-                .fill(null)
-                .map((cv, ci) => this.renderSquare(ri * 3 + ci))}
-            </div>
-          ))}
+      <div className="board">
+        {this.state.rows.map((cells, rowIndex) => (
+          <div key={rowIndex} className="board-row">
+            {cells.map((cellNumber, cellIndex) => (
+              <Square
+                key={cellIndex}
+                value={fetSquareValue(cellNumber)}
+                onClick={() => onSquareClick(cellNumber)}
+              />
+            ))}
+          </div>
+        ))}
       </div>
     );
   }
