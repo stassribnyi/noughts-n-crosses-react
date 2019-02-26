@@ -1,16 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import './Board.css';
 
-function Square(props) {
-  return (
-    <button className="square" onClick={props.onClick}>
-      {props.value}
-    </button>
-  );
-}
+import Square from '../square';
 
-export default class Board extends React.Component {
+export default class Board extends Component {
   renderSquare(i) {
     return (
       <Square
