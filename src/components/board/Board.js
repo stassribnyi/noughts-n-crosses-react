@@ -31,7 +31,7 @@ export default class Board extends Component {
 
   render() {
     const fetSquareValue = num => this.props.squares[num];
-    const onSquareClick = num => this.props.onClick(num);
+    const onSquareClick = num => this.props.onSquareClick(num);
 
     return (
       <div className="board">

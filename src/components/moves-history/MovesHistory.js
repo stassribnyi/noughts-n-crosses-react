@@ -21,7 +21,7 @@ const getHistoryButtonName = (history, step, move) => {
 };
 
 export default props => {
-  const { currentStep, history, jumpTo } = props;
+  const { currentStep, history, onJumpTo } = props;
 
   return (
     <ol className="move-history">
@@ -35,7 +35,7 @@ export default props => {
 
         return (
           <li key={move}>
-            <button className={buttonClass} onClick={() => jumpTo(move)}>
+            <button className={buttonClass} onClick={() => onJumpTo(move)}>
               {buttonName}
             </button>
           </li>
