@@ -1,0 +1,9 @@
+.move-history {
+  border-radius: 3px;
+  padding: 8px 8px 8px 24px;
+  border: 1px dashed slategray;
+}
+
+.history-btn.active {
+  font-weight: bold;
+}
