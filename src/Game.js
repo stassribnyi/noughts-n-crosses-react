@@ -2,40 +2,7 @@ import React from 'react';
 
 import './Game.css';
 
-function Square(props) {
-  return (
-    <button className="square" onClick={props.onClick}>
-      {props.value}
-    </button>
-  );
-}
-
-class Board extends React.Component {
-  renderSquare(i) {
-    return (
-      <Square
-        value={this.props.squares[i]}
-        onClick={() => this.props.onClick(i)}
-      />
-    );
-  }
-
-  render() {
-    return (
-      <div>
-        {Array(3)
-          .fill(null)
-          .map((rv, ri) => (
-            <div className="board-row">
-              {Array(3)
-                .fill(null)
-                .map((cv, ci) => this.renderSquare(ri * 3 + ci))}
-            </div>
-          ))}
-      </div>
-    );
-  }
-}
+import { Board } from './components';
 
 export default class Game extends React.Component {
   constructor(props) {
