@@ -1,5 +1,27 @@
-.board-row:after {
-  clear: both;
-  content: '';
-  display: table;
+.board {
+  width: 388px;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+.board .board-row {
+  display: flex;
+  border-top: 4px solid #0169a5;
+}
+
+.board .board-row:last-child {
+  border-bottom: 4px solid #0169a5;
+}
+
+@media (max-width: 500px) {
+  .board {
+    width: 288px;
+  }
+}
+
+@media (max-width: 380px) {
+  .board {
+    width: 208px;
+  }
 }

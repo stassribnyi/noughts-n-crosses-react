@@ -67,6 +67,7 @@ export default class Game extends Component {
     return (
       <div className="game">
         <div className="game-board">
+          <div className="game-title">Noughts and Crosses (React)</div>
           <Board
             squares={current.squares}
             size={boardSize}

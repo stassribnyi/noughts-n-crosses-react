@@ -1,12 +1,14 @@
 * {
+  color: #0376a8;
   font-family: 'Quicksand', sans-serif;
 }
 
+html,
 body {
-  margin: 20px;
+  margin: 0;
+  padding: 0;
 }
 
-ol,
-ul {
-  padding-left: 30px;
+body {
+  background: #f2e4ca;
 }

@@ -1,17 +1,38 @@
+/* reset defaults */
 .square {
-  background: #fff;
-  border: 1px solid #999;
-  float: left;
-  font-size: 24px;
-  font-weight: bold;
-  height: 34px;
-  margin-right: -1px;
-  margin-top: -1px;
+  margin: 0;
   padding: 0;
-  text-align: center;
-  width: 34px;
+  border: none;
+  outline: none;
 }
 
-.square:focus {
-  outline: none;
+.square {
+  flex: 1;
+  width: 128px;
+  height: 128px;
+  font-size: 64px;
+  color: #c260a8;
+  font-weight: bold;
+  text-align: center;
+  background: transparent;
+  border-left: 4px solid #0169a5;
+}
+
+.square:last-child {
+  border-right: 4px solid #0169a5;
+}
+
+@media (max-width: 500px) {
+  .square {
+    width: 96px;
+    height: 96px;
+  }
+}
+
+@media (max-width: 380px) {
+  .square {
+    width: 64px;
+    height: 64px;
+    font-size: 48px;
+  }
 }

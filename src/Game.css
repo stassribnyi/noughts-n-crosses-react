@@ -1,12 +1,28 @@
-.status {
-  margin-bottom: 10px;
-}
-
 .game {
   display: flex;
-  flex-direction: row;
+  padding: 24px 48px;
 }
 
-.game-info {
-  margin-left: 20px;
+.game .game-title {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.game .game-title,
+.game .game-status {
+  font-size: 24px;
+}
+
+.game .game-board {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .game {
+    flex-direction: column;
+  }
+
+  .game .game-board {
+    margin-bottom: 32px;
+  }
 }
