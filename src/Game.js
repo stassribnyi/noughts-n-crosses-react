@@ -3,6 +3,7 @@ import React from 'react';
 import './Game.css';
 
 import { Board } from './components';
+import { getTurnLocation, calculateWinner, DEFAULT_BOARD_SIZE } from './game-utils';
 
 export default class Game extends React.Component {
   constructor(props) {
@@ -15,7 +16,8 @@ export default class Game extends React.Component {
         }
       ],
       stepNumber: 0,
-      xIsNext: true
+      xIsNext: true,
+      boardSize: DEFAULT_BOARD_SIZE
     };
   }
 
@@ -24,7 +26,7 @@ export default class Game extends React.Component {
     const current = history[history.length - 1];
     const squares = current.squares.slice();
 
-    if (calculateWinner(squares) || squares[i]) {
+    if (calculateWinner(squares, this.state.boardSize) || squares[i]) {
       return;
     }
 
@@ -50,7 +52,7 @@ export default class Game extends React.Component {
   render() {
     const history = this.state.history;
     const current = history[this.state.stepNumber];
-    const winner = calculateWinner(current.squares);
+    const winner = calculateWinner(current.squares, this.state.boardSize);
 
     let status;
     if (winner) {
@@ -63,7 +65,7 @@ export default class Game extends React.Component {
       let desc;
       if (move) {
         let prevStep = history[move - 1];
-        let { col, row } = getTurnLocation(prevStep.squares, step.squares);
+        let { col, row } = getTurnLocation(prevStep.squares, step.squares, this.state.boardSize);
         desc = `Go to move # ${move} (${col + 1},${row + 1})`;
       } else {
         desc = 'Go to game start';
@@ -86,7 +88,11 @@ export default class Game extends React.Component {
     return (
       <div className="game">
         <div className="game-board">
-          <Board squares={current.squares} onClick={i => this.handleClick(i)} />
+          <Board
+            size={this.state.boardSize}
+            squares={current.squares}
+            onClick={i => this.handleClick(i)}
+          />
         </div>
         <div className="game-info">
           <div>{status}</div>
@@ -95,37 +101,4 @@ export default class Game extends React.Component {
       </div>
     );
   }
-}
-
-function getTurnLocation(prev, current) {
-  const index = current.findIndex((v, i) => v !== prev[i]);
-  const size = 3;
-
-  return {
-    col: index % size,
-    row: Math.floor(index / size)
-  };
-}
-
-function calculateWinner(squares) {
-  const lines = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
-  ];
-
-  for (let i = 0; i < lines.length; i++) {
-    const [a, b, c] = lines[i];
-
-    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return squares[a];
-    }
-  }
-
-  return null;
 }

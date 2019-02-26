@@ -9,7 +9,7 @@ export default class Board extends Component {
     super(props);
 
     this.state = {
-      rows: this.generateGrid(3)
+      rows: this.generateGrid(props.size)
     };
   }
 
