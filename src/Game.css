@@ -11,6 +11,7 @@
 .game .game-title,
 .game .game-status {
   font-size: 24px;
+  font-weight: bold;
 }
 
 .game .game-board {
