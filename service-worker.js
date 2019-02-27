@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/noughts-n-crosses-react/precache-manifest.2b38f575afd51af6ba2d194cf8ea1cf2.js"
+  "/noughts-n-crosses-react/precache-manifest.b45142d16d272fee3315febad9aeb7ee.js"
 );
 
 workbox.clientsClaim();
