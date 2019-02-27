@@ -1,6 +1,6 @@
 # Noughts and Crosses (React)
 
-> Simple noughts and crosses game made step by step by React tutorial. This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+> Simple noughts and crosses app made after a brief acquaintance with React. This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 [Live Demo](https://stassribnyi.github.io/noughts-n-crosses-react/)
 
