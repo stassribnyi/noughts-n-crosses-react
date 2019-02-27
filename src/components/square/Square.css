@@ -20,7 +20,7 @@
   position: relative;
 }
 
-.square:hover::after {
+.square:empty:hover::after {
   top: 0;
   left: 0;
   content: '';
