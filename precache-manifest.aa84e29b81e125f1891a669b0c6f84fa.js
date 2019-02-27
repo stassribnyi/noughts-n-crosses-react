@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/noughts-n-crosses-react/static/js/runtime~main.9a4a91f6.js"
   },
   {
-    "revision": "b3707eecdc1a00f27cdc",
-    "url": "/noughts-n-crosses-react/static/js/main.b3707eec.chunk.js"
+    "revision": "70584ee14adde939ec6f",
+    "url": "/noughts-n-crosses-react/static/js/main.70584ee1.chunk.js"
   },
   {
     "revision": "ea089c583e222e215502",
     "url": "/noughts-n-crosses-react/static/js/2.ea089c58.chunk.js"
   },
   {
-    "revision": "b3707eecdc1a00f27cdc",
-    "url": "/noughts-n-crosses-react/static/css/main.67364a70.chunk.css"
+    "revision": "70584ee14adde939ec6f",
+    "url": "/noughts-n-crosses-react/static/css/main.a48f1385.chunk.css"
   },
   {
-    "revision": "f9a9aace6358b6d383a560a8226eb678",
+    "revision": "f39aa386d54f61b30e2bc0f6e1813bc5",
     "url": "/noughts-n-crosses-react/index.html"
   }
 ];
